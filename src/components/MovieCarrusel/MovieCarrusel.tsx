@@ -1,15 +1,10 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { MovieCard } from '../MovieCard';
-import { IMovieResponse } from '../MovieCard/types';  // Asumiendo que existe este tipo
-
+import { IMovieResponse } from '../MovieCard/types';  
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
-// Definir props para el componente MovieCarousel
-interface MovieCarouselProps {
-    movies: IMovieResponse[];  // Usar el tipo IMovieResponse para movies
-}
+import { MovieCarouselProps } from './types';
 
 const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
     const settings = {
@@ -50,7 +45,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
 
     return (
         <Slider {...settings}>
-            {movies.map((movie: IMovieResponse) => (  // Asegúrate de tipar cada película como IMovieResponse
+            {movies.map((movie: IMovieResponse) => (  
                 <MovieCard
                     key={movie.id}
                     movieId={movie.id}
