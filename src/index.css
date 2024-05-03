@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.movie-card {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer; /* Optional: Changes the mouse cursor to indicate the card is interactive */
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05); /* Scales the card to 105% of its original size */
+    z-index: 10; /* Ensures the card pops out over other content */
+  }
