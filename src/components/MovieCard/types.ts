@@ -1,10 +1,11 @@
 export interface IMovieCard {
     title: string;
-    genreId: number;
+    genreId: number; 
     movieId: number;
     voteAvergae: number;
     posterPath: string;
 }
+
 
 export interface IGenre {
     id: number;
@@ -21,9 +22,10 @@ export interface IMovieResponse {
     overview: string;
     popularity: number;
     poster_path: string;
-    release_date: Date;
+    release_date: string;
     title: string;
     video: boolean;
     vote_average: number;
     vote_count: number;
+    runtime: number;
 }

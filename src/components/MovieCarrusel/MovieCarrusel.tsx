@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { IMovieDetail } from "../../pages/Show/types";
 import { MovieCard } from '../MovieCard';
 import { IMovieResponse } from '../MovieCard/types';  
 import "slick-carousel/slick/slick.css"; 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IGenre, IMovieCard } from './types';
+import { IMovieCard } from './types';
 import { IMAGE_SOURCE } from '../../constants/moviesMock';
 import genres from '../../constants/genres.json';
 import '../../index.css';
@@ -13,33 +13,28 @@ const MovieCard: React.FC<IMovieCard> = ({
     voteAvergae,
     posterPath,
 }) => {
-    //hooks
     const navigate = useNavigate();
-    //state
-    //constante que no sea estado
     const poster = IMAGE_SOURCE + posterPath;
-    //funciones
+
     const getGenre = (genreId: number): string => {
-        const key = Object.values(genres.genres).find(genre => genre.id === genreId);
-        if (key) {
-            return key.name;
+        if (genreId === 0) {
+            return "No genre available";
         }
-        return "Not classified";
+
+        const key = Object.values(genres.genres).find(genre => genre.id === genreId);
+        return key ? key.name : "Not classified";
     };
 
     const navigateMovies = (id: number, movieName: string) => {
-        navigate(`${ROUTES.SHOW}${id}`, {state: { movieName }});
-        // estado {state: { movieName }
-        //url ${ROTES.SHOW}${id}
-    }
-    //useeffect
+        navigate(`${ROUTES.SHOW}${id}`, { state: { movieName } });
+    };
 
     return (
         <div className="movie-card max-w-xs bg-white rounded-lg overflow-hidden shadow-md relative"
-        onClick={() => {
-            navigateMovies(movieId, title);
-        }}>
-            
+            onClick={() => {
+                navigateMovies(movieId, title);
+            }}
+        >
             <img className="w-full" src={poster} alt='poster' />
             <div className="absolute bottom-0 w-full bg-opacity-75 text-white p-4">
                 <div className="font-bold text-xl mb-2">{title}</div>
@@ -54,7 +49,7 @@ const MovieCard: React.FC<IMovieCard> = ({
             </div>
         </div>
     );
-}
+};
 
 export default MovieCard;
 
